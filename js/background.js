@@ -10,7 +10,7 @@ constructor(ctx){
        vx: -2,
        vy: 0
    }
-   this.backgroundMain.img.src = "/images/512px-Rain_Forest_Daintree_Australia.jpg" 
+   this.backgroundMain.img.src = "/images/bg 2 example.jpg" 
    
    this.backgroundFloor = {
        img: new Image(), //we are creating the image(new) telling the object what is the image and which properties is going to have

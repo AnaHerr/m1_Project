@@ -1,12 +1,12 @@
 class Player{
     constructor(ctx){
     this.ctx = ctx
-    this.width = 50
-    this.height = 50
+    this.width = 150
+    this.height = 120
 
     //position
     this.x = 100
-    this.y = 400
+    this.y = 300
 
     //acceleration
     this.vy = 0 //gravity
@@ -15,14 +15,14 @@ class Player{
 
     //Kangaroo image
     this.img = new Image()
-    this.img.src = "/images/Kangaroo.png"
+    this.img.src = "/images/KNG-jump2.png"
 
     }
 
 
     init(){
     this.x = 100
-    this.y = 400
+    this.y = 300
     this.vy = 0
     }
   
@@ -58,6 +58,7 @@ class Player{
           this.x + this.width > object.x &&
           this.y < object.y + object.height &&
           this.y + this.height > object.y)
+
       }
     
 }

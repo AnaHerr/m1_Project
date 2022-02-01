@@ -22,14 +22,14 @@ class Obstacles{
     getNewObstacle(position){
       let newObstacle = {
           img: new Image(),
-          width: 40,
-          height: 30,
+          width: 90,
+          height: 80,
           x: position + this.ctx.canvas.width,
           y: 360,
           vx: -3,
           vy: 0
       }  
-      newObstacle.img.src = "/images/fire-creative-commons.png"
+      newObstacle.img.src = "/images/free-faier.png"
 
       return newObstacle
     }

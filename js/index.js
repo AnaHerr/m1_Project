@@ -9,7 +9,8 @@ const game = new Game(ctx, player, background, obstacles, koalas)
 
 const startButton = document.getElementById("start-button")
    startButton.onclick = () => {
-       startButton.text = "Play Again"
+       startButton.textContent = "Play Again";
+       startButton.blur();
        game.start();
    }
 

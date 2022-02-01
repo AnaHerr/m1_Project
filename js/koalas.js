@@ -20,19 +20,19 @@ class Koalas{
     getNewKoala(position){
         let newKoala = {
             img: new Image(),
-            width: 50,
-            height: 40,
+            width: 100,
+            height: 80,
             x: this.ctx.canvas.width,
-            y: position ,
+            y: position,
             vx: -3,
             vy: 0
         }  
-        newKoala.img.src = "/images/Koala.png"
+        newKoala.img.src = "/images/koala-face.png"
   
         return newKoala
       }
       
-      draw(){
+      draw(){ 
        this.animals.forEach(object =>{
            this.ctx.drawImage(
                object.img,
@@ -43,4 +43,6 @@ class Koalas{
            )
        })
       }
+     
+            
 }
