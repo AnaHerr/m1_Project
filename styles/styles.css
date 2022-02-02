@@ -1,15 +1,24 @@
+@font-face {
+  font-family: Atarian;
+  src: url("/styles/Font-Atarian/SF\ Atarian\ System.ttf");
+}
+
 body {
     text-align: center;
-    background-color: rgb(103, 180, 120);
+    background-color: rgb(210, 241, 217);
+    border-radius: 10px;
   }
 
 body h1 {
-    font-size: 40px;
+    font-family: Atarian;
+    font-size: 50px;
+    color: black;
     text-transform: uppercase;
   }
 
 body button {
-    font-size: 20px;
+    font-family: Atarian;
+    font-size: 30px;
     background-color: rgb(10, 10, 10);
     color: #fff;
     padding: 10px 20px;
@@ -17,4 +26,32 @@ body button {
     box-shadow: 0;
     border-radius: 5px;
     margin-bottom: 20px;
+  }
+
+#general-div{
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+ 
+}
+
+#start-page{
+  position: absolute;
+  border-radius: 10px;
+}
+
+#game-board{
+  position: absolute;
+  border-color: black;
+}
+
+.hidden{
+  display: none;
+}
+
+#canvas{
+    
+    border-radius: 10px;
+    padding: 0px 50px 50px 50px
   }

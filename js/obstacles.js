@@ -2,7 +2,7 @@ class Obstacles{
     constructor(ctx){
         this.ctx = ctx;
         this.objects = []
-        
+            
     }
     
     init(){
@@ -12,24 +12,23 @@ class Obstacles{
     move(frameNumber){
       if(frameNumber < 20) return
       if(frameNumber %100 === 0){
-      const randomObst = Math.floor(Math.random()*900) 
-      console.log(randomObst);
+      const randomObst = Math.floor(Math.random()*900); 
       this.objects.push(this.getNewObstacle(randomObst))
       }
-      this.objects.forEach( object => object.x += object.vx)
+      this.objects.forEach(object => object.x += object.vx)
     }
 
     getNewObstacle(position){
       let newObstacle = {
           img: new Image(),
-          width: 90,
-          height: 80,
+          width: 70,
+          height: 60,
           x: position + this.ctx.canvas.width,
           y: 360,
-          vx: -3,
+          vx: -4,
           vy: 0
       }  
-      newObstacle.img.src = "/images/free-faier.png"
+      newObstacle.img.src = "/images/faier.png"
 
       return newObstacle
     }

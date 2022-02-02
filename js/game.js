@@ -31,26 +31,29 @@ class Game{
         this.koalas.init()
         this.player.init()
         this.resetScore()
-        //this.sound.init() ***search for song
+        song1.play()
     }
 
     play(){
         this.move();
         this.draw();
         this.drawScore();
+        this.increaseDifficulty()
         if(this.checkCollisionsKoala()){
           this.score += 1;
-          this.removeKoala()
-        };
-        if(this.checkCollisionsFire()) this.gameOver();
+          this.removeKoala();
+          koalaAudio.play();
+        }; 
+        if(this.checkCollisionsFire() || this.score === 50) this.gameOver();
         if(this.frameNumber !== null){
             this.frameNumber = requestAnimationFrame(this.play.bind(this))
-        }
+        };
     }
     
     stop() {
         cancelAnimationFrame(this.frameNumber);
         this.frameNumber = null;
+        song1.pause();
       }
 
 
@@ -87,8 +90,7 @@ class Game{
         if(this.koalas.animals.some((koala)=>
         this.player.collidesWith(koala)) !== this.koalaSaved){
         return this.koalaSaved = !this.koalaSaved;
-        }
-                
+        }      
     }
     
     removeKoala(){
@@ -101,14 +103,27 @@ class Game{
     }
 
     drawScore(){
-      this.ctx.fillStyle = "black";
+      this.ctx.fillStyle = "white";
       this.ctx.font = "bold 24px sans-serif";
-      this.ctx.fillText (`Rescued koalas: ${this.score}`, 20, 40);
-      
+      this.ctx.fillText (`Rescued koalas: ${this.score}`, 30, 50);
     }
 
     resetScore(){
       this.score = 0;
+    }
+
+    increaseDifficulty(){
+      if(this.score < 10) return
+      if(this.score >=10){
+        this.obstacles.objects.forEach((fires)=>{
+          fires.vx = -6
+        })}
+
+      if(this.score >=15){
+        this.obstacles.objects.forEach((fires)=>{
+          fires.vx = -8;
+          });
+        }
     }
 
     gameOver(){
@@ -119,11 +134,21 @@ class Game{
       this.ctx.fillStyle = "white";
       this.ctx.textAlign = "center";
       this.ctx.font = "bold 36px sans-serif";
-      this.ctx.fillText(
-        "Game Over",
+      
+      if(this.score === 50){
+        this.ctx.fillText(
+        `You saved all 50 koalas! You rock!`,
         900 / 2,
-        500 / 2
-      );
+        500 / 2);
+        winAudio.play()}
+      else {
+        this.ctx.fillText(
+          `You saved ${this.score} koalas! Well done!`,
+          900 / 2,
+          500 / 2
+        );
+      }
+
       this.ctx.restore();
     }
 

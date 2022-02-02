@@ -6,10 +6,10 @@ class Player{
 
     //position
     this.x = 100
-    this.y = 300
+    this.y = 100
 
     //acceleration
-    this.vy = 0 //gravity
+    this.vy = 0 
     this.ay= 1 
     
 
@@ -22,7 +22,7 @@ class Player{
 
     init(){
     this.x = 100
-    this.y = 300
+    this.y = 100
     this.vy = 0
     }
   
@@ -31,7 +31,7 @@ class Player{
     // only move y up when key pressed
     this.vy += this.ay;
     this.y += this.vy;
-    if(this.y > 400) this.y = 400
+    if(this.y > 300) this.y = 300
     if(this.y < 5) this.y = 5
 
     }

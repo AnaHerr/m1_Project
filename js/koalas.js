@@ -20,8 +20,8 @@ class Koalas{
     getNewKoala(position){
         let newKoala = {
             img: new Image(),
-            width: 100,
-            height: 80,
+            width: 80,
+            height: 60,
             x: this.ctx.canvas.width,
             y: position,
             vx: -3,
