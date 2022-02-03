@@ -41,7 +41,7 @@ class Game{
         this.increaseDifficulty()
         if(this.checkCollisionsKoala()){
           this.score += 1;
-          this.removeKoala();
+          //this.removeKoala();
           koalaAudio.play();
         }; 
         if(this.checkCollisionsFire() || this.score === 50) this.gameOver();
@@ -62,6 +62,7 @@ class Game{
         this.obstacles.move(this.frameNumber);
         this.player.move(this.frameNumber);
         this.koalas.move(this.frameNumber);
+        this.saveKoalaAnimation()
       }
 
 
@@ -86,31 +87,48 @@ class Game{
 
 
     checkCollisionsKoala(koala){
+      debugger
         if(this.koalas.animals.some((koala)=>
-        this.player.collidesWith(koala)) !== this.koalaSaved){
-        return this.koalaSaved = !this.koalaSaved;
+        this.player.collidesWith(koala)) && !koala.saved){
+        return koala.saved = true;
         }      
     }
     
-    removeKoala(){
+    /*removeKoala(){
       this.koalas.animals.forEach(koala =>{
         if (this.player.collidesWith(koala)){
         let index = this.koalas.animals.indexOf(koala)
         this.koalas.animals.splice(index, 1)
         }
       })
+    }*/
+    saveKoalaAnimation(frameNumber){
+      this.koalas.animals
+        .filter(koala => koala.saved)
+        .forEach(koalaSaved =>{
+          const slope = (koalaSaved.y -50 )/ (koalaSaved.x -30)
+          koalaSaved.x += 2;
+          koalaSaved.y += koalaSaved.x * slope
+
+        })
+      
+      //this.koalas.animals.splice(index, 1)
     }
 
     drawScore(){
+      const imgIcon = new Image();
+      imgIcon.src = "/images/koala-face.png"
+      this.ctx.drawImage(imgIcon, 45, 30, 30, 30)
       this.ctx.fillStyle = "white";
       this.ctx.font = "bold 24px sans-serif";
-      this.ctx.fillText (`Rescued koalas: ${this.score}`, 30, 50);
+      this.ctx.fillText (`Rescued koalas: ${this.score}`, 80, 50);
     }
 
     resetScore(){
       this.score = 0;
     }
 
+  
     increaseDifficulty(){
       if(this.score < 10) return
       if(this.score >=10){

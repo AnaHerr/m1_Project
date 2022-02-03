@@ -2,6 +2,7 @@ class Koalas{
     constructor(ctx){
         this.ctx = ctx;
         this.animals = []
+
     }
     
     init(){
@@ -25,7 +26,8 @@ class Koalas{
             x: this.ctx.canvas.width,
             y: position,
             vx: -3,
-            vy: 0
+            vy: 0,
+            saved: false
         }  
         newKoala.img.src = "images/koala-face.png"
   
