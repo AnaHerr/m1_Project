@@ -70,7 +70,7 @@ class Game{
         this.background.draw()
         this.obstacles.draw()
         this.koalas.draw()
-        this.player.draw()
+        this.player.draw(this.frameNumber)
         this.drawScore()
     }
   

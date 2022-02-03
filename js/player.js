@@ -3,6 +3,8 @@ class Player{
     this.ctx = ctx
     this.width = 150
     this.height = 120
+    this.kangarooArr = []
+    this.kangarooCounter = 0
 
     //position
     this.x = 100
@@ -12,11 +14,7 @@ class Player{
     this.vy = 0 
     this.ay= 1 
     
-
-    //Kangaroo image
-    this.img = new Image()
-    this.img.src = "/images/KNG-jump2.png"
-
+    
     }
 
 
@@ -24,8 +22,26 @@ class Player{
     this.x = 100
     this.y = 100
     this.vy = 0
+    this.createKangaroo()
     }
-  
+    
+  //Kangaroo image
+    createKangaroo(){
+      for (let i = 0; i < 3; i++){
+      const img = new Image();
+      img.src = `/images/kangarooSprite/1x/Recurso ${i + 1}.png`
+      this.kangarooArr.push(img)
+      }
+    }
+
+    drawKangaroo(frameNumber){
+
+      if(frameNumber %20 === 0){
+        this.kangarooCounter +=1
+      }
+      this.ctx.drawImage(this.kangarooArr[this.kangarooCounter], this.x, this.y, this.width, this.height);    
+      if (this.kangarooCounter > 2) this.kangarooCounter = 0
+    }
 
     move(){
     // only move y up when key pressed
@@ -38,18 +54,11 @@ class Player{
 
     jumpUp() {
         this.vy = -20;
-     
       }
   
  
     draw(frameNumber) {
-          this.ctx.drawImage(
-          this.img,
-          this.x, // the x-axis coordinate in the destination canvas
-          this.y, // the y-axis coordinate in the destination canvas   
-          this.width,
-          this.height       
-        );
+        this.drawKangaroo(frameNumber)    
       }
     
   
