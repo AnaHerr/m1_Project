@@ -29,18 +29,19 @@ class Player{
     createKangaroo(){
       for (let i = 0; i < 3; i++){
       const img = new Image();
-      img.src = `./images/kangarooSprite/1x/Recurso-${i + 1}.png`
+      img.src = `images/kangarooSprite/1x/Recurso-${i + 1}.png`
       img.onload = () => this.kangarooArr.push(img)
       }
     }
 
     drawKangaroo(frameNumber){
-
-      if(frameNumber %20 === 0){
+      
+      const kangtoPrint = this.kangarooArr[this.kangarooCounter];
+      if(frameNumber %15 === 0){
         this.kangarooCounter +=1
+      if(this.kangarooCounter > 2) this.kangarooCounter = 0
       }
-      this.ctx.drawImage(this.kangarooArr[this.kangarooCounter], this.x, this.y, this.width, this.height);    
-      if (this.kangarooCounter > 2) this.kangarooCounter = 0
+      this.ctx.drawImage(kangtoPrint, this.x, this.y, this.width, this.height);    
     }
 
     move(){

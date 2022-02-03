@@ -10,7 +10,7 @@ constructor(ctx){
        vx: -2,
        vy: 0
    }
-   this.backgroundMain.img.src = "./images/Game_Background_142.png" 
+   this.backgroundMain.img.src = "images/Game_Background_142.png" 
    
    this.backgroundFloor = {
        img: new Image(), //we are creating the image(new) telling the object what is the image and which properties is going to have
@@ -21,7 +21,7 @@ constructor(ctx){
        vx: -2,
        vy: 0
    }
-   this.backgroundFloor.img.src = "./images/Game_Background_floor.png"
+   this.backgroundFloor.img.src = "images/Game_Background_floor.png"
 }
 
    init() {
