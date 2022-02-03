@@ -29,8 +29,8 @@ class Player{
     createKangaroo(){
       for (let i = 0; i < 3; i++){
       const img = new Image();
-      img.src = `./images/kangarooSprite/1x/Recurso ${i + 1}.png`
-      this.kangarooArr.push(img)
+      img.src = `./images/kangarooSprite/1x/Recurso-${i + 1}.png`
+      img.onload = () => this.kangarooArr.push(img)
       }
     }
 
