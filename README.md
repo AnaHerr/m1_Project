@@ -1,0 +1,1 @@
+Koala rescue - Rescue as many koalas as possible while dodging the fire!
