@@ -19,10 +19,10 @@ const startButton = document.getElementById("start-button")
    }
 
 
-const song1 = new Audio("/audio/gamemusic-6082.mp3")
-const fireAudio = new Audio("/audio/short-fireball-woosh-6146.mp3")
-const koalaAudio = new Audio("/audio/collect-5930.mp3")
-const winAudio = new Audio("/audio/success-fanfare-trumpets-6185.mp3")
+const song1 = new Audio("./audio/gamemusic-6082.mp3")
+const fireAudio = new Audio("./audio/short-fireball-woosh-6146.mp3")
+const koalaAudio = new Audio("./audio/collect-5930.mp3")
+const winAudio = new Audio("./audio/success-fanfare-trumpets-6185.mp3")
 
 
    

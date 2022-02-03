@@ -28,7 +28,7 @@ class Obstacles{
           vx: -4,
           vy: 0
       }  
-      newObstacle.img.src = "/images/faier.png"
+      newObstacle.img.src = "./images/faier.png"
 
       return newObstacle
     }

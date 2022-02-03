@@ -27,7 +27,7 @@ class Koalas{
             vx: -3,
             vy: 0
         }  
-        newKoala.img.src = "/images/koala-face.png"
+        newKoala.img.src = "./images/koala-face.png"
   
         return newKoala
       }
