@@ -77,7 +77,6 @@ class Game{
 
     checkCollisionsFire(){
       let collisions = false;
-
       if(this.obstacles.objects.some((obstacles)=>
         this.player.collidesWith(obstacles)
         )) {collisions = true}
