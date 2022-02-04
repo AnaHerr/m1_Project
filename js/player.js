@@ -14,7 +14,6 @@ class Player{
     this.vy = 0 
     this.ay= 1 
     
-    
     }
 
 
